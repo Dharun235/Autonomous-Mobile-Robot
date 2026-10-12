@@ -1,6 +1,6 @@
-# ROS2 Setup Guide
+# Autonomous Mobile Robot Setup Guide
 
-Complete setup guide for running MARPY on Ubuntu 24.04 with ROS2 Jazzy.
+Set up Autonomous Mobile Robot, extended from [MARPY](https://github.com/LevinTamir/MARPY), on Ubuntu 24.04 with ROS 2 Jazzy.
 
 ## Option A: Docker (Recommended for Beginners)
 
@@ -13,8 +13,8 @@ Docker is the easiest way to get started - no ROS2 installation needed on your h
 ### 1. Clone the Workspace
 
 ```bash
-git clone https://github.com/LevinTamir/MARPY.git marpy_ws
-cd marpy_ws
+git clone https://github.com/Dharun235/Autonomous-Mobile-Robot.git
+cd Autonomous-Mobile-Robot
 ```
 
 ### 2. Start the Containers
@@ -29,7 +29,7 @@ docker compose up -d
 ### 3. Enter the Workspace
 
 ```bash
-docker exec -it marpy_ws bash
+docker exec -it autonomous_mobile_robot_ws bash
 ```
 
 ### 4. Build the Workspace
@@ -43,7 +43,7 @@ source install/setup.bash
 ### 5. Run Teleop
 
 ```bash
-ros2 run teleop_control_node teleop_control
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 Now drive your robot with `i`, `j`, `k`, `l` keys!
@@ -58,8 +58,8 @@ Now drive your robot with `i`, `j`, `k`, `l` keys!
 ### 1. Clone and Build the Workspace
 
 ```bash
-git clone https://github.com/LevinTamir/MARPY.git marpy_ws
-cd marpy_ws
+git clone https://github.com/Dharun235/Autonomous-Mobile-Robot.git
+cd Autonomous-Mobile-Robot
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
 source install/setup.bash
@@ -103,7 +103,7 @@ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1}, angular: {z:
 ### 4. Run Teleop
 
 ```bash
-ros2 run teleop_control_node teleop_control
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 ## Network Configuration
@@ -132,12 +132,12 @@ ros2 run teleop_control_node teleop_control
 docker run -it --rm --net=host microros/micro-ros-agent:jazzy udp4 --port 8888 -v6
 
 # Terminal 2: RViz (robot visualization)
-cd marpy_ws
+cd Autonomous-Mobile-Robot
 source install/setup.bash
-ros2 launch marpy_description display.launch.py
+ros2 launch autonomous_mobile_robot_description display.launch.py
 
 # Terminal 3: Teleop
-cd marpy_ws
+cd Autonomous-Mobile-Robot
 source install/setup.bash
-ros2 run teleop_control_node teleop_control
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```

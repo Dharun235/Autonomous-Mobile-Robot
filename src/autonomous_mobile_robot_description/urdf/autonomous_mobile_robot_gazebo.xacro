@@ -94,7 +94,7 @@
 
   <!--
     DiffDrive plugin: subscribes to /cmd_vel and drives the wheel joints.
-    Odometry is NOT computed here - marpy_localization handles it from
+    Odometry is NOT computed here - autonomous_mobile_robot_localization handles it from
     /joint_states, keeping the sim pipeline identical to real hardware.
   -->
   <gazebo>

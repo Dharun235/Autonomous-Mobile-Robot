@@ -1,6 +1,6 @@
 # Simulation
 
-Run MARPY in Gazebo Ignition without any hardware. The simulation uses the same `/cmd_vel` and `/joint_states` topics as the real robot, so teleop and odometry work identically.
+Run Autonomous Mobile Robot in Gazebo without hardware. The simulation uses the same `/cmd_vel` and `/joint_states` topics as the real robot, so teleop and odometry work identically.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ sudo apt install -y \
 Build the workspace:
 
 ```bash
-cd ~/marpy_ws
+cd ~/Autonomous-Mobile-Robot
 colcon build --symlink-install
 source install/setup.bash
 ```
@@ -30,11 +30,11 @@ source install/setup.bash
 The `sim.launch.py` file starts Gazebo, RViz, and the odometry node in one command:
 
 ```bash
-ros2 launch marpy_bringup sim.launch.py
+ros2 launch autonomous_mobile_robot_bringup sim.launch.py
 ```
 
 This launches:
-- **Gazebo Ignition** with the MARPY robot spawned in an empty world
+- **Gazebo** with the robot spawned in an empty world
 - **RViz** for visualization (TF, robot model, odometry path)
 - **Odometry node** computing wheel odometry from `/joint_states`
 
@@ -43,7 +43,7 @@ This launches:
 In a separate terminal:
 
 ```bash
-source ~/marpy_ws/install/setup.bash
+source ~/Autonomous-Mobile-Robot/install/setup.bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
@@ -67,7 +67,7 @@ The path will draw the route the robot has traveled in the odom frame.
 To inspect the robot model in RViz without Gazebo:
 
 ```bash
-ros2 launch marpy_description display.launch.py
+ros2 launch autonomous_mobile_robot_description display.launch.py
 ```
 
 ## Custom Worlds
@@ -75,10 +75,10 @@ ros2 launch marpy_description display.launch.py
 Pass a custom world file:
 
 ```bash
-ros2 launch marpy_bringup sim.launch.py world_name:=my_world
+ros2 launch autonomous_mobile_robot_bringup sim.launch.py world_name:=my_world
 ```
 
-World files are located in `src/marpy_description/worlds/` (SDF format).
+World files are located in `src/autonomous_mobile_robot_description/worlds/` (SDF format).
 
 ## Troubleshooting
 

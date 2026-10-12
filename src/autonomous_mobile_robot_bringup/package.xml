@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>marpy_bringup</name>
+  <name>autonomous_mobile_robot_bringup</name>
   <version>0.1.0</version>
-  <description>Launch files for bringing up the MARPY robot (sim and real)</description>
+  <description>Launch files for Autonomous Mobile Robot simulation and hardware</description>
   <maintainer email="tamirlvn@gmail.com">Tamir Levin</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <exec_depend>ros2launch</exec_depend>
-  <exec_depend>marpy_description</exec_depend>
-  <exec_depend>marpy_localization</exec_depend>
+  <exec_depend>autonomous_mobile_robot_description</exec_depend>
+  <exec_depend>autonomous_mobile_robot_localization</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

@@ -73,7 +73,7 @@ def _read_until(it, buf: bytearray, sep: bytes, start: int = 0) -> int:
 
 class MjpegBridge(Node):
     def __init__(self):
-        super().__init__("marpy_cam_bridge")
+        super().__init__("autonomous_mobile_robot_cam_bridge")
 
         self.declare_parameter("stream_url", "http://marpy-cam.local:81/stream")
         self.declare_parameter("topic", "/camera/image_raw")

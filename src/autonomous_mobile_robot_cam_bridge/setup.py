@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = "marpy_localization"
+package_name = "autonomous_mobile_robot_cam_bridge"
 
 setup(
     name=package_name,
@@ -14,11 +14,11 @@ setup(
     zip_safe=True,
     maintainer="Tamir Levin",
     maintainer_email="tamirlvn@gmail.com",
-    description="Differential-drive odometry from wheel encoder joint states",
+    description="Pulls the ESP32-CAM MJPEG stream and republishes it as sensor_msgs/Image",
     license="MIT",
     entry_points={
         "console_scripts": [
-            "odometry_node = marpy_localization.odometry_node:main",
+            "mjpeg_bridge = autonomous_mobile_robot_cam_bridge.mjpeg_bridge:main",
         ],
     },
 )

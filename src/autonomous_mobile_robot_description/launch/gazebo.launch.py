@@ -18,11 +18,11 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    pkg_dir = get_package_share_directory("marpy_description")
+    pkg_dir = get_package_share_directory("autonomous_mobile_robot_description")
 
     model_arg = DeclareLaunchArgument(
         name="model",
-        default_value=os.path.join(pkg_dir, "urdf", "marpy.xacro"),
+        default_value=os.path.join(pkg_dir, "urdf", "autonomous_mobile_robot.xacro"),
         description="Absolute path to robot xacro file",
     )
 
@@ -63,7 +63,11 @@ def generate_launch_description():
                 get_package_share_directory("ros_gz_sim"), "launch", "gz_sim.launch.py"
             ),
         ]),
-        launch_arguments={"gz_args": PythonExpression(["'", world_path, " -v 4 -r'"])}.items(),
+        launch_arguments={
+            "gz_args": PythonExpression(
+                ["'", world_path, " -v 4 -r --render-engine ogre'"]
+            )
+        }.items(),
     )
 
     spawn_entity = Node(
@@ -72,7 +76,7 @@ def generate_launch_description():
         output="screen",
         arguments=[
             "-topic", "robot_description",
-            "-name", "marpy",
+            "-name", "autonomous_mobile_robot",
             "-x", "0.0",
             "-y", "0.0",
             "-z", "0.05",

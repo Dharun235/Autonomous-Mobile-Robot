@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>marpy_cam_bridge</name>
+  <name>autonomous_mobile_robot_cam_bridge</name>
   <version>0.1.0</version>
   <description>Pulls the ESP32-CAM MJPEG stream and republishes it as sensor_msgs/Image</description>
   <maintainer email="tamirlvn@gmail.com">Tamir Levin</maintainer>

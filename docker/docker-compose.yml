@@ -1,15 +1,15 @@
 services:
   agent:
     image: microros/micro-ros-agent:jazzy
-    container_name: marpy_agent
+    container_name: autonomous_mobile_robot_agent
     network_mode: host
     command: ["udp4", "--port", "8888", "-v6"]
     restart: unless-stopped
     environment:
       - ROS_DOMAIN_ID=0
 
-  marpy:
-    image: marpy_ws
+  autonomous_mobile_robot:
+    image: autonomous_mobile_robot_ws
     build:
       context: ..
       dockerfile: docker/Dockerfile
@@ -17,7 +17,7 @@ services:
         UID: ${UID:-1000}
         GID: ${GID:-1000}
         USERNAME: robot
-    container_name: marpy_ws
+    container_name: autonomous_mobile_robot_ws
     network_mode: host
     environment:
       - DISPLAY=${DISPLAY}

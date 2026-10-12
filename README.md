@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/marpy_banner.jpeg" width="100%" alt="MARPY - Most Affordable ROS2 Platform Yet"/>
+  <img src="docs/images/marpy_banner.jpeg" width="100%" alt="Autonomous Mobile Robot (based on MARPY)"/>
 </p>
 
 <div align="center">
@@ -8,7 +8,9 @@
 
 </div>
 
-A cheap, open-source, 3D-printed differential-drive robot designed for beginners who want to learn ROS2 with real hardware.
+# Autonomous Mobile Robot
+
+ROS 2 mobile robot project extended from [MARPY](https://github.com/LevinTamir/MARPY), a 3D-printed differential-drive platform. Thanks to the MARPY project and its contributors for the robot design and software this work builds on. ROS packages and workspace files use the `autonomous_mobile_robot_*` naming. See [setup notes](docs/setup-notes.md) for the Ubuntu 24.04 ARM64 virtual machine setup and verified results.
 
 ---
 
@@ -24,8 +26,8 @@ A cheap, open-source, 3D-printed differential-drive robot designed for beginners
 ### 1. Clone the workspace
 
 ```bash
-git clone https://github.com/LevinTamir/MARPY.git marpy_ws
-cd marpy_ws
+git clone https://github.com/Dharun235/Autonomous-Mobile-Robot.git
+cd Autonomous-Mobile-Robot
 ```
 
 ### 2. Build the robot
@@ -39,7 +41,7 @@ Follow the guides in order:
 | 3 | [Wiring Guide](docs/wiring.md) | Connect all the electronics |
 | 4 | [Firmware Setup](docs/firmware-setup.md) | Flash the ESP32 with micro-ROS |
 | 5 | [ROS2 Setup](docs/ros2-setup.md) | Set up your PC and start driving! |
-| 6 | [Simulation](docs/simulation.md) | Run MARPY in Gazebo (no hardware needed) |
+| 6 | [Simulation](docs/simulation.md) | Run the robot in Gazebo (no hardware needed) |
 
 ### 3. Drive!
 
@@ -48,7 +50,7 @@ Follow the guides in order:
 docker run -it --rm --net=host microros/micro-ros-agent:jazzy udp4 --port 8888 -v6
 
 # Terminal 2: Launch the real robot (robot_state_publisher, odometry, RViz)
-ros2 launch marpy_bringup real.launch.py
+ros2 launch autonomous_mobile_robot_bringup real.launch.py
 
 # Terminal 3: Drive with keyboard teleop
 sudo apt install ros-jazzy-teleop-twist-keyboard
@@ -68,7 +70,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ## Repository Structure
 
 ```
-marpy_ws/
+Autonomous-Mobile-Robot/
 ├── README.md               ← You are here
 ├── docs/
 │   ├── bom.md              ← Bill of materials + purchase links
@@ -78,9 +80,10 @@ marpy_ws/
 │   ├── ros2-setup.md       ← ROS2 + micro-ROS agent setup
 │   └── images/             ← Robot photos and diagrams
 ├── src/
-│   ├── marpy_description/  ← URDF model + meshes + Gazebo worlds
-│   ├── marpy_localization/ ← Wheel odometry + path tracking
-│   └── marpy_bringup/      ← Launch files (sim + real)
+│   ├── autonomous_mobile_robot_description/  ← URDF model + meshes + Gazebo worlds
+│   ├── autonomous_mobile_robot_localization/ ← Wheel odometry + path tracking
+│   ├── autonomous_mobile_robot_cam_bridge/   ← Optional camera image bridge
+│   └── autonomous_mobile_robot_bringup/      ← Launch files (sim + real)
 ├── docker/
 │   ├── docker-compose.yml  ← micro-ROS agent + dev container
 │   ├── Dockerfile          ← ROS2 Jazzy dev environment
@@ -93,8 +96,8 @@ marpy_ws/
 The ESP32 firmware lives in two separate repos:
 
 - **[marpy_firmware](https://github.com/LevinTamir/marpy_firmware)** - PlatformIO project for the ESP32 drive controller: micro-ROS, motor control, encoder reading, and IMU.
-- **[marpy_cam_firmware](https://github.com/LevinTamir/marpy_cam_firmware)** *(optional)* - PlatformIO project for the ESP32-CAM: serves an MJPEG stream over HTTP, republished as `sensor_msgs/Image` by the `marpy_cam_bridge` node.
+- **[marpy_cam_firmware](https://github.com/LevinTamir/marpy_cam_firmware)** *(optional)* - PlatformIO project for the ESP32-CAM: serves an MJPEG stream over HTTP, republished as `sensor_msgs/Image` by the `autonomous_mobile_robot_cam_bridge` node.
 
 ## Contributing
 
-Contributions are welcome! If you build a MARPY robot, open an issue with photos so everyone can see it.
+Contributions are welcome! If you build this robot, open an issue with photos so everyone can see it.

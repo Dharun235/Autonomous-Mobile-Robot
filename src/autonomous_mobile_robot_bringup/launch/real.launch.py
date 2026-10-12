@@ -1,16 +1,16 @@
-"""Launch MARPY on real hardware.
+"""Launch Autonomous Mobile Robot on real hardware.
 
 Assumes the micro-ROS agent is already running:
   docker run -it --rm --net=host microros/micro-ros-agent:jazzy udp4 --port 8888 -v6
 
 The base ESP32 firmware handles /cmd_vel, /joint_states, and /imu over micro-ROS.
 The cam ESP32 serves MJPEG over plain HTTP at http://marpy-cam.local/stream;
-the marpy_cam_bridge node pulls that stream and republishes /camera/image_raw.
+the autonomous_mobile_robot_cam_bridge node pulls that stream and republishes /camera/image_raw.
 
 This launch file starts:
   - robot_state_publisher (URDF TFs)
   - odometry_node (computes /odom + odom->base_footprint TF from /joint_states)
-  - marpy_cam_bridge (HTTP MJPEG -> sensor_msgs/Image)
+  - autonomous_mobile_robot_cam_bridge (HTTP MJPEG -> sensor_msgs/Image)
   - rviz2 (visualization, using the same config as the sim launch)
 
 Teleop is launched separately from another terminal:
@@ -27,11 +27,11 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    pkg_dir = get_package_share_directory("marpy_description")
+    pkg_dir = get_package_share_directory("autonomous_mobile_robot_description")
 
     model_arg = DeclareLaunchArgument(
         name="model",
-        default_value=os.path.join(pkg_dir, "urdf", "marpy.xacro"),
+        default_value=os.path.join(pkg_dir, "urdf", "autonomous_mobile_robot.xacro"),
         description="Absolute path to robot xacro file",
     )
 
@@ -47,16 +47,16 @@ def generate_launch_description():
     )
 
     odometry_node = Node(
-        package="marpy_localization",
+        package="autonomous_mobile_robot_localization",
         executable="odometry_node",
         name="odometry_node",
         output="screen",
     )
 
     cam_bridge = Node(
-        package="marpy_cam_bridge",
+        package="autonomous_mobile_robot_cam_bridge",
         executable="mjpeg_bridge",
-        name="marpy_cam_bridge",
+        name="autonomous_mobile_robot_cam_bridge",
         output="screen",
         parameters=[{
             # Use mDNS so the bridge survives DHCP changes between APs.

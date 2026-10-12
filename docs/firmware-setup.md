@@ -93,7 +93,7 @@ echo "IP:   $(hostname -I | awk '{print $1}')"
 The firmware repo's `.vscode/settings.json` references `${env:MARPY_WS}` so VS Code's Python analyzer can find ROS2 message types from your workspace install. If you ever edit ROS2 Python nodes alongside the firmware, point `MARPY_WS` at wherever you cloned the workspace and add it to your shell rc:
 
 ```bash
-echo 'export MARPY_WS=/path/to/your/marpy_ws' >> ~/.bashrc
+echo 'export MARPY_WS=$HOME/Documents/Autonomous-Mobile-Robot' >> ~/.bashrc
 ```
 
 No effect on flashing or C++ IntelliSense, this only affects Python autocomplete for ROS2 messages.

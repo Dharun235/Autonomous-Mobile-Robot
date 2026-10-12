@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(marpy_bringup)
+project(autonomous_mobile_robot_bringup)
 
 find_package(ament_cmake REQUIRED)
 
