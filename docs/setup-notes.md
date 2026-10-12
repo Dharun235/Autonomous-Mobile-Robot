@@ -8,10 +8,12 @@ Install ROS 2 Jazzy using the [official Ubuntu instructions](https://docs.ros.or
 
 ```bash
 source /opt/ros/jazzy/setup.bash
+sudo apt install -y python3-rosdep python3-colcon-common-extensions
+sudo rosdep init  # Run once per computer; skip if already initialized
+rosdep update
 git clone https://github.com/Dharun235/Autonomous-Mobile-Robot.git ~/Documents/Autonomous-Mobile-Robot
 cd ~/Documents/Autonomous-Mobile-Robot
 rosdep install --from-paths src --ignore-src -r -y
-sudo apt install ros-jazzy-xacro
 colcon build --symlink-install
 source install/setup.bash
 ```
@@ -24,8 +26,7 @@ Install the Gazebo and visualization packages if they are missing:
 
 ```bash
 sudo apt install ros-jazzy-ros-gz-sim ros-jazzy-ros-gz-bridge \
-  ros-jazzy-robot-state-publisher ros-jazzy-rviz2 \
-  ros-jazzy-teleop-twist-keyboard
+  ros-jazzy-robot-state-publisher ros-jazzy-rviz2
 ```
 
 Launch the simulation:
@@ -43,7 +44,7 @@ The Gazebo launch file includes `--render-engine ogre` because OGRE2 failed to i
 gz sim -v 3 shapes.sdf --render-engine ogre
 ```
 
-The workspace build succeeded in this environment. The full robot simulation after the renderer change, robot keyboard control, and ESP32 connection have not been verified yet.
+The workspace build and full Gazebo simulation were verified in this environment. Publishing velocity commands moved the simulated robot and updated wheel states and odometry. Physical ESP32 control was not verified.
 
 ## Optional micro-ROS agent
 

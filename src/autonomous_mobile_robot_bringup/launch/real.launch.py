@@ -14,7 +14,7 @@ This launch file starts:
   - rviz2 (visualization, using the same config as the sim launch)
 
 Teleop is launched separately from another terminal:
-  ros2 run teleop_twist_keyboard teleop_twist_keyboard
+  ros2 run autonomous_mobile_robot_bringup arrow_teleop.py
 """
 
 import os

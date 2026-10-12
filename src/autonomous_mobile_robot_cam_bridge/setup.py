@@ -12,8 +12,8 @@ setup(
     ],
     install_requires=["setuptools"],
     zip_safe=True,
-    maintainer="Tamir Levin",
-    maintainer_email="tamirlvn@gmail.com",
+    maintainer="Dharun235",
+    maintainer_email="dharunkumar.senthilkumar9@gmail.com",
     description="Pulls the ESP32-CAM MJPEG stream and republishes it as sensor_msgs/Image",
     license="MIT",
     entry_points={

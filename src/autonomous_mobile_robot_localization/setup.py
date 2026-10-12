@@ -12,8 +12,8 @@ setup(
     ],
     install_requires=["setuptools"],
     zip_safe=True,
-    maintainer="Tamir Levin",
-    maintainer_email="tamirlvn@gmail.com",
+    maintainer="Dharun235",
+    maintainer_email="dharunkumar.senthilkumar9@gmail.com",
     description="Differential-drive odometry from wheel encoder joint states",
     license="MIT",
     entry_points={

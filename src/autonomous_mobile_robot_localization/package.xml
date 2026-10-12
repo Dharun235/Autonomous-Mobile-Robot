@@ -4,7 +4,7 @@
   <name>autonomous_mobile_robot_localization</name>
   <version>0.1.0</version>
   <description>Differential-drive odometry from wheel encoder joint states</description>
-  <maintainer email="tamirlvn@gmail.com">Tamir Levin</maintainer>
+  <maintainer email="dharunkumar.senthilkumar9@gmail.com">Dharun235</maintainer>
   <license>MIT</license>
 
   <exec_depend>rclpy</exec_depend>

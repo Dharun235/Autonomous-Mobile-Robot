@@ -1,7 +1,7 @@
 """Launch Autonomous Mobile Robot in Gazebo simulation with RViz.
 
 Teleop is launched separately from another terminal:
-  ros2 run teleop_twist_keyboard teleop_twist_keyboard
+  ros2 run autonomous_mobile_robot_bringup arrow_teleop.py
 
 Kill leftover processes before relaunching:
   pkill -9 -f "gz sim|rviz2|robot_state_publisher|parameter_bridge"

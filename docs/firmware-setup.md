@@ -1,11 +1,11 @@
-# Firmware Setup (ESP32)
+# ESP32 Firmware Setup
 
 This guide walks you through flashing the micro-ROS base firmware (drive controller) onto the ESP32. Make sure you've completed the [Assembly](assembly.md) and [Wiring](wiring.md) first.
 
-The MARPY firmware lives in two repos, each a self-contained PlatformIO project:
+This guide uses the original upstream firmware repositories. Their names and clone paths are unchanged; firmware has not been renamed or copied into this repository:
 
-- [marpy_firmware](https://github.com/LevinTamir/marpy_firmware) (this guide): ESP32 drive controller, publishes `/joint_states` and `/imu`, subscribes to `/cmd_vel`.
-- [marpy_cam_firmware](https://github.com/LevinTamir/marpy_cam_firmware): optional ESP32-CAM vision firmware that serves an MJPEG HTTP stream. See its README for setup; it does not use micro-ROS.
+- [Upstream ESP32 drive firmware](https://github.com/LevinTamir/marpy_firmware): ESP32 drive controller, publishes `/joint_states` and `/imu`, subscribes to `/cmd_vel`.
+- [Upstream ESP32 camera firmware](https://github.com/LevinTamir/marpy_cam_firmware): optional ESP32-CAM firmware serving an MJPEG HTTP stream. See its README for setup; it does not use micro-ROS.
 
 ## What is PlatformIO?
 

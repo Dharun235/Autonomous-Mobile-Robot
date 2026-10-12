@@ -4,7 +4,7 @@
   <name>autonomous_mobile_robot_cam_bridge</name>
   <version>0.1.0</version>
   <description>Pulls the ESP32-CAM MJPEG stream and republishes it as sensor_msgs/Image</description>
-  <maintainer email="tamirlvn@gmail.com">Tamir Levin</maintainer>
+  <maintainer email="dharunkumar.senthilkumar9@gmail.com">Dharun235</maintainer>
   <license>MIT</license>
 
   <exec_depend>rclpy</exec_depend>

@@ -3,8 +3,8 @@
 <package format="3">
   <name>autonomous_mobile_robot_description</name>
   <version>0.1.0</version>
-  <description>URDF, meshes, and launch files for Autonomous Mobile Robot, extended from MARPY</description>
-  <maintainer email="tamir@todo.com">Tamir Levin</maintainer>
+  <description>URDF, meshes, and launch files for Autonomous Mobile Robot</description>
+  <maintainer email="dharunkumar.senthilkumar9@gmail.com">Dharun235</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

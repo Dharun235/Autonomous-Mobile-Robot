@@ -1,6 +1,6 @@
 # Bill of Materials (BOM)
 
-Everything you need to build your own MARPY robot. Total cost is approximately **$40-55 USD** depending on what you already have.
+Bill of materials for Autonomous Mobile Robot, based on the [upstream MARPY design](https://github.com/LevinTamir/MARPY). Cost is approximately **$40-55 USD** depending on what you already have. Some part filenames and purchase links retain upstream names.
 
 ## Electronics
 

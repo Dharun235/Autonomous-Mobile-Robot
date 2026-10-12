@@ -1,6 +1,6 @@
 # Autonomous Mobile Robot Setup Guide
 
-Set up Autonomous Mobile Robot, extended from [MARPY](https://github.com/LevinTamir/MARPY), on Ubuntu 24.04 with ROS 2 Jazzy.
+Set up Autonomous Mobile Robot on Ubuntu 24.04 with ROS 2 Jazzy. Robot design and reused ROS resources are credited to the [upstream MARPY project](https://github.com/LevinTamir/MARPY).
 
 ## Option A: Docker (Recommended for Beginners)
 
@@ -43,27 +43,41 @@ source install/setup.bash
 ### 5. Run Teleop
 
 ```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run autonomous_mobile_robot_bringup arrow_teleop.py
 ```
 
-Now drive your robot with `i`, `j`, `k`, `l` keys!
+Use arrow keys to drive. Press Space to stop and `q` to quit. Run this command in an interactive terminal. Arrow teleop sends zero velocity if key repeat stops for 0.5 seconds.
 
 ---
 
 ## Option B: Native Installation
 
-> This section assumes you already have **ROS2 Jazzy installed** on Ubuntu 24.04.
-> If not, follow the [official installation guide](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html) first.
+Install ROS 2 Jazzy Desktop by following the [official Ubuntu guide](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html). Then install workspace tools:
+
+```bash
+sudo apt update
+sudo apt install -y git python3-rosdep python3-colcon-common-extensions
+```
+
+Initialize rosdep once per computer. Skip `rosdep init` if it was already initialized:
+
+```bash
+sudo rosdep init
+rosdep update
+```
 
 ### 1. Clone and Build the Workspace
 
 ```bash
 git clone https://github.com/Dharun235/Autonomous-Mobile-Robot.git
 cd Autonomous-Mobile-Robot
+source /opt/ros/jazzy/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
 source install/setup.bash
 ```
+
+Run `source /opt/ros/jazzy/setup.bash` and `source install/setup.bash` in each new terminal before ROS commands. `rosdep` installs package dependencies, including Gazebo integration, Xacro, RViz, and Python message libraries.
 
 ### 2. Run the micro-ROS Agent
 
@@ -103,7 +117,7 @@ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1}, angular: {z:
 ### 4. Run Teleop
 
 ```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run autonomous_mobile_robot_bringup arrow_teleop.py
 ```
 
 ## Network Configuration
@@ -139,5 +153,5 @@ ros2 launch autonomous_mobile_robot_description display.launch.py
 # Terminal 3: Teleop
 cd Autonomous-Mobile-Robot
 source install/setup.bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run autonomous_mobile_robot_bringup arrow_teleop.py
 ```

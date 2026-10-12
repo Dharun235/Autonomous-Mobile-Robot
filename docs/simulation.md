@@ -13,14 +13,14 @@ sudo apt install -y \
   ros-jazzy-ros-gz-bridge \
   ros-jazzy-robot-state-publisher \
   ros-jazzy-xacro \
-  ros-jazzy-rviz2 \
-  ros-jazzy-teleop-twist-keyboard
+  ros-jazzy-rviz2
 ```
 
 Build the workspace:
 
 ```bash
 cd ~/Autonomous-Mobile-Robot
+source /opt/ros/jazzy/setup.bash
 colcon build --symlink-install
 source install/setup.bash
 ```
@@ -44,10 +44,10 @@ In a separate terminal:
 
 ```bash
 source ~/Autonomous-Mobile-Robot/install/setup.bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run autonomous_mobile_robot_bringup arrow_teleop.py
 ```
 
-Use the keyboard to drive. You should see:
+Use arrow keys to drive. Press Space to stop and `q` to quit. You should see:
 - The robot moving in Gazebo
 - The odometry path (`/odom_path`) drawing in RViz
 - The TF tree updating in real time
@@ -90,6 +90,7 @@ Then relaunch.
 
 **Robot doesn't move with teleop:**
 - Make sure the teleop terminal is focused (it reads keypresses)
+- Run teleop in an interactive terminal; arrow keys use terminal escape sequences
 - Check that the Gazebo bridge is running: `ros2 topic list` should show `/cmd_vel`
 
 **No odometry path in RViz:**

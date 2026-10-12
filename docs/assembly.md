@@ -1,6 +1,6 @@
 # Assembly Instructions
 
-Step-by-step guide to physically build your MARPY robot. Once assembled, continue to the [Wiring Guide](wiring.md) to connect everything electrically.
+Step-by-step build guide for Autonomous Mobile Robot. This assembly layout, instructions, and photos come from the [upstream MARPY project](https://github.com/LevinTamir/MARPY); 3D parts retain their upstream MakerWorld names. Continue to the [Wiring Guide](wiring.md) after assembly.
 
 ## What You'll Need
 
@@ -8,7 +8,7 @@ Step-by-step guide to physically build your MARPY robot. Once assembled, continu
 - 3D printed parts (Download the STLs from [MakerWorld](https://makerworld.com/en/models/2655868-marpy#profileId-2936800))
 - Basic tools: screwdriver, hex key (Allen wrench)
 
-<img src="images/marpy_parts.jpeg" height="350" alt="All parts laid out"/>
+<img src="images/marpy_parts.jpeg" height="350" alt="Parts for the upstream MARPY robot design"/>
 
 ## Step 1: Attach Motors to Motor Mounts
 

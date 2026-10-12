@@ -4,12 +4,14 @@
   <name>autonomous_mobile_robot_bringup</name>
   <version>0.1.0</version>
   <description>Launch files for Autonomous Mobile Robot simulation and hardware</description>
-  <maintainer email="tamirlvn@gmail.com">Tamir Levin</maintainer>
+  <maintainer email="dharunkumar.senthilkumar9@gmail.com">Dharun235</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <exec_depend>ros2launch</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>autonomous_mobile_robot_description</exec_depend>
   <exec_depend>autonomous_mobile_robot_localization</exec_depend>
 

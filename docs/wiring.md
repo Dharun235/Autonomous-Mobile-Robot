@@ -3,15 +3,15 @@
 > [!CAUTION]
 > **NEVER connect the ESP32 to your PC via USB while the robot's batteries are switched ON.** The battery power will back-feed through the ESP32's VIN into your computer's USB port. This can damage your PC, the ESP32, or both. **Always turn off the battery switch before plugging in a USB cable** for flashing firmware or any other reason. To be safe, you can **disconnect the ESP32 entirely** from the terminal board while flashing.
 
-This guide covers all electrical connections for the MARPY robot. Make sure you've completed the [Assembly](assembly.md) first - all components should be physically mounted before wiring.
+This guide covers electrical connections for Autonomous Mobile Robot, based on the [upstream MARPY design](https://github.com/LevinTamir/MARPY). Complete [Assembly](assembly.md) before wiring. The wiring images are reused from the upstream project.
 
 ## Wiring Diagram
 
-<img src="images/wiring_diagram.png" width="800" alt="MARPY Wiring Diagram"/>
+<img src="images/wiring_diagram.png" width="800" alt="Wiring diagram for the upstream MARPY design"/>
 
 ## Full Schematic
 
-<img src="images/marpy_schematic.png" width="800" alt="MARPY Schematic"/>
+<img src="images/marpy_schematic.png" width="800" alt="Schematic for the upstream MARPY design"/>
 
 ## Step 1: Power Distribution
 
