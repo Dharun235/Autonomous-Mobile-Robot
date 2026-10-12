@@ -8,7 +8,7 @@ log/
 .idea/
 *.code-workspace
 
-## Claude Code (local project config, not for GitHub)
+## Local assistant configuration (not for GitHub)
 .claude/
 
 ## Python
