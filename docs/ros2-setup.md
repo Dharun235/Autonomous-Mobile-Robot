@@ -1,6 +1,6 @@
 # Autonomous Mobile Robot Setup Guide
 
-Set up Autonomous Mobile Robot on Ubuntu 24.04 with ROS 2 Jazzy. Robot design and reused ROS resources are credited to the [upstream MARPY project](https://github.com/LevinTamir/MARPY).
+Set up Autonomous Mobile Robot on Ubuntu 24.04 with ROS 2 Jazzy.
 
 ## Option A: Docker (Recommended for Beginners)
 

@@ -6,11 +6,7 @@
 
 # Autonomous Mobile Robot
 
-Autonomous Mobile Robot is a ROS 2 differential-drive robot project. Its robot design, build documentation, and parts of its software extend the [MARPY project](https://github.com/LevinTamir/MARPY). This repository renames and updates the ROS packages and workspace, adds arrow-key teleoperation, and documents setup and simulation changes. Upstream remains credited as the source of reused work and design materials. See [setup notes](docs/setup-notes.md) for the tested Ubuntu 24.04 ARM64 setup.
-
-<p align="center">
-  <img src="docs/images/marpy_banner.jpeg" width="100%" alt="MARPY design used by Autonomous Mobile Robot"/>
-</p>
+Autonomous Mobile Robot is a ROS 2 differential-drive robot project. This repository contains renamed ROS packages, simulation support, arrow-key teleoperation, and setup instructions. See [setup notes](docs/setup-notes.md) for the tested Ubuntu 24.04 ARM64 setup.
 
 ---
 
