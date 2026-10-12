@@ -1,12 +1,12 @@
 <div align="center">
 
-[![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/) [![ROS2 Jazzy](https://img.shields.io/badge/ROS2-Jazzy-22314E?logo=ros&logoColor=white)](https://docs.ros.org/en/jazzy/) [![micro-ROS](https://img.shields.io/badge/micro--ROS-ESP32-orange)](https://micro.ros.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE). This project is inspired from (MARPY)[https://github.com/LevinTamir/MARPY.git] and the goal is to extend this to autonomous mobile robot that is cheap and easy to learn. 
+[![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/) [![ROS2 Jazzy](https://img.shields.io/badge/ROS2-Jazzy-22314E?logo=ros&logoColor=white)](https://docs.ros.org/en/jazzy/) [![micro-ROS](https://img.shields.io/badge/micro--ROS-ESP32-orange)](https://micro.ros.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE). 
 
 </div>
 
 # Autonomous Mobile Robot
 
-Autonomous Mobile Robot is a ROS 2 differential-drive robot project. This repository contains renamed ROS packages, simulation support, arrow-key teleoperation, and setup instructions. See [setup notes](docs/setup-notes.md) for the tested Ubuntu 24.04 ARM64 setup.
+Autonomous Mobile Robot is a ROS 2 differential-drive robot project. This repository contains renamed ROS packages, simulation support, arrow-key teleoperation, and setup instructions. See [setup notes](docs/setup-notes.md) for the tested Ubuntu 24.04 ARM64 setup. This project is inspired from (MARPY)[https://github.com/LevinTamir/MARPY.git] and the goal is to extend this to autonomous mobile robot that is cheap and easy to learn. 
 
 ---
 
