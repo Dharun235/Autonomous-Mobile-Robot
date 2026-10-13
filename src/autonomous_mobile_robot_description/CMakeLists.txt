@@ -4,7 +4,7 @@ project(autonomous_mobile_robot_description)
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY launch urdf meshes rviz worlds
+  DIRECTORY launch urdf meshes rviz worlds gui
   DESTINATION share/${PROJECT_NAME}
 )
 

@@ -41,6 +41,8 @@ Choose [Docker setup](docs/ros2-setup.md#option-a-docker-recommended-for-beginne
 
 For simulation, follow the [Gazebo guide](docs/simulation.md). Simulation needs no robot hardware.
 
+The Gazebo house world starts the robot in a clear southwest corner. The simulated front RGB camera publishes `/camera/image_raw` and `/camera/camera_info`; the live Gazebo world pose is published on `/robot/pose`. Furniture and walls have physics collision geometry, and contact with the robot's padded chassis box returns it to its launch pose. For launch, keyboard driving, camera viewing, pose monitoring, and a collision reset check, see the [simulation guide](docs/simulation.md).
+
 For physical robot, start the agent, launch the robot, and run arrow teleop in separate terminals. Source ROS 2 and workspace setup in each terminal:
 
 ```bash

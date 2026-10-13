@@ -27,9 +27,9 @@ class ArrowTeleop(Node):
         self.last_key_time = time.monotonic()
         self.command = Twist()
         if key == "\x1b[A":
-            self.command.linear.x = -self.linear_speed
-        elif key == "\x1b[B":
             self.command.linear.x = self.linear_speed
+        elif key == "\x1b[B":
+            self.command.linear.x = -self.linear_speed
         elif key == "\x1b[D":
             self.command.angular.z = self.angular_speed
         elif key == "\x1b[C":

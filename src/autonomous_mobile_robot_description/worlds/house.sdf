@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="house">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics" />
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands" />
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact" />
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"><render_engine>ogre2</render_engine></plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu" />
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows><pose>0 0 8 0 0 0</pose>
+      <diffuse>0.85 0.85 0.85 1</diffuse><specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.4 0.2 -0.9</direction>
+    </light>
+
+    <model name="floor">
+      <static>true</static><link name="floor_link">
+        <collision name="collision"><geometry><box><size>8 6 0.1</size></box></geometry><pose>0 0 -0.05 0 0 0</pose></collision>
+        <visual name="visual"><geometry><box><size>8 6 0.1</size></box></geometry><pose>0 0 -0.05 0 0 0</pose><material><ambient>0.72 0.68 0.58 1</ambient><diffuse>0.72 0.68 0.58 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- House shell: 8 m by 6 m, 2 m high, with open top for easy viewing. -->
+    <model name="house_walls">
+      <static>true</static><link name="walls">
+        <collision name="north_c"><pose>0 3 1 0 0 0</pose><geometry><box><size>8 0.12 2</size></box></geometry></collision>
+        <visual name="north_v"><pose>0 3 1 0 0 0</pose><geometry><box><size>8 0.12 2</size></box></geometry><material><ambient>0.84 0.83 0.78 1</ambient><diffuse>0.84 0.83 0.78 1</diffuse></material></visual>
+        <collision name="south_c"><pose>0 -3 1 0 0 0</pose><geometry><box><size>8 0.12 2</size></box></geometry></collision>
+        <visual name="south_v"><pose>0 -3 1 0 0 0</pose><geometry><box><size>8 0.12 2</size></box></geometry><material><ambient>0.84 0.83 0.78 1</ambient><diffuse>0.84 0.83 0.78 1</diffuse></material></visual>
+        <collision name="west_c"><pose>-4 0 1 0 0 0</pose><geometry><box><size>0.12 6 2</size></box></geometry></collision>
+        <visual name="west_v"><pose>-4 0 1 0 0 0</pose><geometry><box><size>0.12 6 2</size></box></geometry><material><ambient>0.84 0.83 0.78 1</ambient><diffuse>0.84 0.83 0.78 1</diffuse></material></visual>
+        <collision name="east_c"><pose>4 0 1 0 0 0</pose><geometry><box><size>0.12 6 2</size></box></geometry></collision>
+        <visual name="east_v"><pose>4 0 1 0 0 0</pose><geometry><box><size>0.12 6 2</size></box></geometry><material><ambient>0.84 0.83 0.78 1</ambient><diffuse>0.84 0.83 0.78 1</diffuse></material></visual>
+
+        <!-- Partial interior walls leave 1.2 m doorways between rooms. -->
+        <collision name="partition_a_c"><pose>-1.2 0.8 0.75 0 0 0</pose><geometry><box><size>0.12 4.4 1.5</size></box></geometry></collision>
+        <visual name="partition_a_v"><pose>-1.2 0.8 0.75 0 0 0</pose><geometry><box><size>0.12 4.4 1.5</size></box></geometry><material><ambient>0.88 0.86 0.8 1</ambient><diffuse>0.88 0.86 0.8 1</diffuse></material></visual>
+        <collision name="partition_b_c"><pose>1.5 -0.5 0.75 0 0 0</pose><geometry><box><size>0.12 3.0 1.5</size></box></geometry></collision>
+        <visual name="partition_b_v"><pose>1.5 -0.5 0.75 0 0 0</pose><geometry><box><size>0.12 3.0 1.5</size></box></geometry><material><ambient>0.88 0.86 0.8 1</ambient><diffuse>0.88 0.86 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Furniture-like obstacles provide useful navigation and vision features. -->
+    <model name="living_room_sofa"><static>true</static><pose>-2.8 -1.7 0.3 0 0 0</pose><link name="body"><collision name="c"><geometry><box><size>1.6 0.65 0.6</size></box></geometry></collision><visual name="v"><geometry><box><size>1.6 0.65 0.6</size></box></geometry><material><ambient>0.25 0.38 0.55 1</ambient><diffuse>0.25 0.38 0.55 1</diffuse></material></visual></link></model>
+    <model name="dining_table"><static>true</static><pose>2.7 1.8 0.38 0 0 0</pose><link name="body"><collision name="c"><geometry><box><size>1.4 1.0 0.76</size></box></geometry></collision><visual name="v"><geometry><box><size>1.4 1.0 0.76</size></box></geometry><material><ambient>0.48 0.29 0.16 1</ambient><diffuse>0.48 0.29 0.16 1</diffuse></material></visual></link></model>
+    <model name="kitchen_counter"><static>true</static><pose>2.7 -2.55 0.45 0 0 0</pose><link name="body"><collision name="c"><geometry><box><size>2.1 0.55 0.9</size></box></geometry></collision><visual name="v"><geometry><box><size>2.1 0.55 0.9</size></box></geometry><material><ambient>0.42 0.42 0.42 1</ambient><diffuse>0.42 0.42 0.42 1</diffuse></material></visual></link></model>
+    <model name="bed"><static>true</static><pose>-2.7 1.9 0.22 0 0 0</pose><link name="body"><collision name="c"><geometry><box><size>1.7 1.0 0.44</size></box></geometry></collision><visual name="v"><geometry><box><size>1.7 1.0 0.44</size></box></geometry><material><ambient>0.55 0.62 0.72 1</ambient><diffuse>0.55 0.62 0.72 1</diffuse></material></visual></link></model>
+  </world>
+</sdf>

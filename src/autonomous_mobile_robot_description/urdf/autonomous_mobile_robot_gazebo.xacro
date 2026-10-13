@@ -92,6 +92,19 @@
     </sensor>
   </gazebo>
 
+  <!-- Contact reporting for the simulation reset controller. -->
+  <gazebo reference="base_link">
+    <sensor name="base_contact" type="contact">
+      <always_on>true</always_on>
+      <update_rate>30</update_rate>
+      <contact>
+        <collision>base_footprint_fixed_joint_lump__base_collision_collision</collision>
+        <!-- Contact topics are configured inside <contact> for Gazebo Sensors. -->
+        <topic>/robot/contacts</topic>
+      </contact>
+    </sensor>
+  </gazebo>
+
   <!--
     DiffDrive plugin: subscribes to /cmd_vel and drives the wheel joints.
     Odometry is NOT computed here - autonomous_mobile_robot_localization handles it from

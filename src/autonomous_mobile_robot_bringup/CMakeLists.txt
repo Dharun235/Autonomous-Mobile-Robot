@@ -9,7 +9,10 @@ install(
 )
 
 install(
-  PROGRAMS scripts/arrow_teleop.py
+  PROGRAMS
+    scripts/arrow_teleop.py
+    scripts/collision_reset.py
+    scripts/gazebo_pose.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

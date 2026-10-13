@@ -50,6 +50,10 @@ Visualization Manager:
           Value: true
         base_link:
           Value: true
+        camera_link:
+          Value: true
+        camera_optical_frame:
+          Value: true
         caster_wheel:
           Value: true
         left_wheel:
@@ -67,6 +71,9 @@ Visualization Manager:
         odom:
           base_footprint:
             base_link:
+              camera_link:
+                camera_optical_frame:
+                  {}
               caster_wheel:
                 {}
               left_wheel:
@@ -100,6 +107,16 @@ Visualization Manager:
         base_link:
           Alpha: 1
           Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_optical_frame:
+          Alpha: 1
+          Show Axes: true
           Show Trail: false
           Value: true
         caster_wheel:

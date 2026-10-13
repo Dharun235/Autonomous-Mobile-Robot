@@ -19,6 +19,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     pkg_dir = get_package_share_directory("autonomous_mobile_robot_description")
+    gui_config = os.path.join(pkg_dir, "gui", "camera_view.config")
 
     model_arg = DeclareLaunchArgument(
         name="model",
@@ -31,6 +32,11 @@ def generate_launch_description():
         default_value="empty",
         description="Gazebo world file name (without .sdf extension)",
     )
+
+    spawn_x_arg = DeclareLaunchArgument("spawn_x", default_value="-3.1", description="Robot spawn X position in meters")
+    spawn_y_arg = DeclareLaunchArgument("spawn_y", default_value="-2.5", description="Robot spawn Y position in meters")
+    spawn_z_arg = DeclareLaunchArgument("spawn_z", default_value="0.05", description="Robot spawn Z position in meters")
+    spawn_yaw_arg = DeclareLaunchArgument("spawn_yaw", default_value="0.0", description="Robot spawn yaw in radians")
 
     world_path = PathJoinSubstitution([
         pkg_dir,
@@ -65,7 +71,7 @@ def generate_launch_description():
         ]),
         launch_arguments={
             "gz_args": PythonExpression(
-                ["'", world_path, " -v 4 -r --render-engine ogre'"]
+                ["'", world_path, " -v 4 -r --render-engine ogre --gui-config ", gui_config, "'"]
             )
         }.items(),
     )
@@ -77,9 +83,10 @@ def generate_launch_description():
         arguments=[
             "-topic", "robot_description",
             "-name", "autonomous_mobile_robot",
-            "-x", "0.0",
-            "-y", "0.0",
-            "-z", "0.05",
+            "-x", LaunchConfiguration("spawn_x"),
+            "-y", LaunchConfiguration("spawn_y"),
+            "-z", LaunchConfiguration("spawn_z"),
+            "-Y", LaunchConfiguration("spawn_yaw"),
         ],
     )
 
@@ -91,8 +98,14 @@ def generate_launch_description():
             "/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist",
             "/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry",
             "/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model",
-            "/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V",
+            PythonExpression([
+                "'/world/", LaunchConfiguration("world_name"),
+                "/dynamic_pose/info@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V'",
+            ]),
             "/imu@sensor_msgs/msg/Imu[gz.msgs.IMU",
+            "/camera/image_raw@sensor_msgs/msg/Image[gz.msgs.Image",
+            "/camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
+            "/robot/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
         ],
         output="screen",
     )
@@ -100,6 +113,10 @@ def generate_launch_description():
     return LaunchDescription([
         model_arg,
         world_name_arg,
+        spawn_x_arg,
+        spawn_y_arg,
+        spawn_z_arg,
+        spawn_yaw_arg,
         gazebo_resource_path,
         robot_state_publisher,
         gazebo,
